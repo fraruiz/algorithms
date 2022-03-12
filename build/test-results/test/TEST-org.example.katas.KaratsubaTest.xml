@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.example.katas.KaratsubaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-11T00:50:40" hostname="AR0C02FL0MYML85" time="0.016">
-  <properties/>
-  <testcase name="should_multiply_two_integers()" classname="org.example.katas.KaratsubaTest" time="0.016"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
