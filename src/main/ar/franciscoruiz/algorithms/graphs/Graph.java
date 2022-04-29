@@ -1,19 +1,37 @@
 package ar.franciscoruiz.algorithms.graphs;
 
-public interface Graph<T> {
-    void addVertex(T vertex);
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
 
-    void addEdge(T source, T destination);
+public abstract class Graph {
+	public abstract void add(Integer source, Integer destination);
 
-    void addEdge(T source, T destination, boolean bidirectional);
+	public abstract void delete(Integer source, Integer destination);
 
-    Integer vertices();
+	public abstract Boolean exists(Integer source, Integer destination);
 
-    Integer edges(Boolean bidirectional);
+	public abstract Set<Integer> neighbours(Integer vertex);
 
-    Boolean containsVertex(T s);
+	public abstract Integer size();
 
-    Boolean containsEdge(T s, T d);
+	public Integer random() {
+		return new Random().nextInt((this.size()) + 1);
+	}
 
-    String toString();
+	protected void ensureEdgeValid(Integer source, Integer destination) {
+		if (Objects.equals(source, destination)) {
+			throw new IllegalArgumentException(String.format("the source <%s> can not be equals than destination <%s>", source, destination));
+		}
+	}
+
+	public void ensureVertexExists(Integer vertex) {
+		if (vertex < 0) {
+			throw new IllegalArgumentException(String.format("the vertex <%s> can not be less than zero", vertex));
+		}
+
+		if (vertex >= size()) {
+			throw new IllegalArgumentException(String.format("the vertex <%s> can not be less than <%s>", vertex, size()));
+		}
+	}
 }
